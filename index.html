@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>𝕆𝕄𝕆ℂℍ𝕀!</title>
+
+    <link rel="stylesheet" href="omochi.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="top-bar">
+        <p>ᴍᴏᴏᴅ ɴᴀɪᴋ, ᴏᴍᴏᴄʜɪ!</p>
+
+        <div class="top-links">
+            <span>📍 Jakarta</span>
+            <span>✉ omochi@gmail.com</span>
+            <span>◎ Instagram</span>
+        </div>
+    </div>
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            <span>OMOCHI!</span>
+            <small>Mochi Business</small>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#visit">Visit Us</a></li>
+        </ul>
+
+        <button class="order-button" onclick="openOrder()">
+            𝗢𝗥𝗗𝗘𝗥 𝗡𝗢𝗪!
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">𝙵𝚁𝙴𝚂𝙷𝙻𝚈 𝙼𝙰𝙳𝙴</p>
+
+        <h1>
+            Freshly Made,
+            <br>
+            Just For You!
+        </h1>
+
+        <p class="hero-text">
+            Handmade mochi
+            made fresh with love every day.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu" class="primary-button">
+                Order Now
+            </a>
+
+            <a href="#about" class="secondary-button">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+     <!-- RIGHT SIDE IMAGE -->
+
+    <div class="hero-image">
+
+        <img
+            src="mochibrownandwhite.png"
+            alt="Fresh handmade mochi">
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-us" id="about">
+
+    <div class="section-heading">
+
+        <span class="little-icon">✦</span>
+
+        <h2>Why Choose Us?</h2>
+
+        <p>
+            We believe great mochies starts with good ingredients,
+            careful preparation and a whole lot of passion.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <article class="feature-card">
+
+            <img src="mochi-removebg-preview.png" alt="Mochi cookies and cream">
+
+            <div class="feature-content">
+
+                <h3>Mochi Cookies and Cream</h3>
+
+                <p>
+                    Squishy and chewy mochi 
+                    filled with cream and cookies
+                </p>
+
+                <a href="#menu">View Mochi</a>
+
+            </div>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <img src="cocoamochi.png" alt="Mochi Milo">
+
+            <div class="feature-content">
+
+                <h3>Mochi Milo</h3>
+
+                <p>
+                    Squishy and chewy mochi 
+                    with added milo.
+                </p>
+
+                <a href="#menu">View Mochi</a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu-section" id="menu">
+
+    <div class="section-heading">
+
+        <span class="eyebrow">𝑶𝑼𝑹 𝑴𝑬𝑵𝑼</span>
+
+        <h2>Freshly made</h2>
+
+        <p>
+            Choose your favorite mochi and add them to your pre-order.
+        </p>
+
+    </div>
+
+
+    <!-- CATEGORY BUTTONS -->
+
+    <div class="category-buttons">
+
+        <button class="category active" data-category="all">
+            All
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div class="product-grid" id="productGrid">
+
+
+        <!-- Mochi Cookies and Cream -->
+
+        <article class="product-card" data-category="pastry">
+
+            <div class="product-image">
+
+                <img src="mochi-removebg-preview.png" alt="Mochi Cookies and Cream">
+
+                <span class="stock-badge">
+                    Stock: <span class="stock-number" data-id="croissant"></span>
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Mochi Cookies and Cream</h3>
+
+                <p>
+                    Sweet and chewy
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>Rp8.000</strong>
+
+                    <button
+                        class="add-button"
+                        data-id="croissant"
+                        onclick="addToOrder('croissant')">
+                        Add to Order
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- Mochi Milo -->
+
+        <article class="product-card" data-category="pastry">
+
+            <div class="product-image">
+
+                <img src="cocoamochi.png" alt="Mochi Milo">
+
+                <span class="stock-badge">
+                    Stock: <span class="stock-number" data-id="chocolate"></span>
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Mochi Milo</h3>
+
+                <p>
+                    Filled with cream and milo mix.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>Rp8.000</strong>
+
+                    <button
+                        class="add-button"
+                        data-id="chocolate"
+                        onclick="addToOrder('chocolate')">
+                        Add to Order
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="section-heading">
+
+        <span class="eyebrow">WE VALUE YOUR FEEDBACK</span>
+
+        <h2>Tell Us What You Think</h2>
+
+        <p>
+            Your feedback helps us improve our products,
+            service and brand experience.
+        </p>
+
+    </div>
+
+
+    <div class="review-container">
+
+        <!-- REVIEW FORM -->
+
+        <div class="review-form-card">
+
+            <h3>Leave a Review</h3>
+
+            <p class="review-description">
+                Tell us about your experience with our products
+                and branding.
+            </p>
+
+
+            <form id="reviewForm">
+
+
+                <!-- NAME -->
+
+                <label>
+                    Your Name
+
+                    <input
+                        type="text"
+                        id="reviewName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </label>
+
+
+                <!-- PRODUCT -->
+
+                <label>
+                    Product You Tried
+
+                    <select id="reviewProduct" required>
+
+                        <option value="">
+                            Select a product
+                        </option>
+
+                        <option>
+                            Mochi Cookies and Cream
+                        </option>
+
+                        <option>
+                            Mochi Milo
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <!-- PRODUCT RATING -->
+
+                <div class="rating-group">
+
+                    <h4>🥐 Product Experience</h4>
+
+                    <p>
+                        How would you rate the product?
+                    </p>
+
+
+                    <div class="rating-row">
+
+                        <span>Taste</span>
+
+                        <div class="stars"
+                             data-rating="taste">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Visual / Appearance</span>
+
+                        <div class="stars"
+                             data-rating="visual">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Texture</span>
+
+                        <div class="stars"
+                             data-rating="texture">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Freshness</span>
+
+                        <div class="stars"
+                             data-rating="freshness">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BRANDING -->
+
+                <div class="rating-group">
+
+                    <h4>🎨 Branding Experience</h4>
+
+                    <p>
+                        How would you rate our brand?
+                    </p>
+
+
+                    <div class="rating-row">
+
+                        <span>Website Design</span>
+
+                        <div class="stars"
+                             data-rating="website">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Logo</span>
+
+                        <div class="stars"
+                             data-rating="logo">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Packaging</span>
+
+                        <div class="stars"
+                             data-rating="packaging">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rating-row">
+
+                        <span>Overall Branding</span>
+
+                        <div class="stars"
+                             data-rating="branding">
+
+                            <button type="button" data-value="1">★</button>
+                            <button type="button" data-value="2">★</button>
+                            <button type="button" data-value="3">★</button>
+                            <button type="button" data-value="4">★</button>
+                            <button type="button" data-value="5">★</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEEDBACK -->
+
+                <label>
+
+                    Additional Feedback
+
+                    <textarea
+                        id="reviewFeedback"
+                        placeholder="What did you like? What could we improve?"
+                        required>
+                    </textarea>
+
+                </label>
+
+
+                <!-- RECOMMENDATION -->
+
+                <label>
+
+                    Would you recommend us?
+
+                    <select id="recommendation" required>
+
+                        <option value="">
+                            Select an option
+                        </option>
+
+                        <option>
+                            Definitely!
+                        </option>
+
+                        <option>
+                            Probably
+                        </option>
+
+                        <option>
+                            Maybe
+                        </option>
+
+                        <option>
+                            Not yet
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="submit-review-button">
+
+                    Submit Review
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- REVIEWS DISPLAY -->
+
+        <div class="reviews-display">
+
+            <div class="reviews-header">
+
+                <h3>Customer Reviews</h3>
+
+                <div class="overall-rating">
+
+                    <span id="averageRating">
+                        0.0
+                    </span>
+
+                    <div>
+                        <div class="average-stars">
+                            ★★★★★
+                        </div>
+
+                        <small>
+                            Based on
+                            <span id="reviewCount">0</span>
+                            reviews
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="reviewList">
+
+                <div class="no-reviews">
+
+                    <span>♡</span>
+
+                    <p>
+                        No reviews yet.
+                        Be the first to share your experience!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= VISIT US ================= -->
+
+<section class="visit-section" id="visit">
+
+    <div class="visit-content">
+
+        <span class="eyebrow">COME SAY HELLO</span>
+
+        <h2>Visit Us Today</h2>
+
+        <p>
+            
+        </p>
+
+        <div class="visit-info">
+
+            <p>📍 Jl. .., Jakarta</p>
+
+            <p>🕐 Monday, 5 October – Friday, 11 October 07:00 – 20:00</p>
+
+            <p>📞 +62 877 4313 7481</p>
+
+        </div>
+
+        <button class="primary-button" onclick="openOrder()">
+            Pre-Order Now
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        <h2>OMOCHI</h2>
+
+        <p>Mochi Business</p>
+
+    </div>
+
+    <p>
+        © 2026 Omochi!. Made with love.
+    </p>
+
+</footer>
+
+
+<!-- ================= ORDER MODAL ================= -->
+
+<div class="order-modal" id="orderModal">
+
+    <div class="order-box">
+
+        <button class="close-button" onclick="closeOrder()">
+            ×
+        </button>
+
+        <h2>Your Pre-Order</h2>
+
+        <p class="order-subtitle">
+            Freshly made just for you.
+        </p>
+
+
+        <!-- ORDER ITEMS -->
+
+        <div id="orderItems">
+
+            <p class="empty-order">
+                Your order is empty.
+            </p>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="order-total">
+
+            <span>Total</span>
+
+            <strong id="orderTotal">
+                Rp0
+            </strong>
+
+        </div>
+
+
+        <!-- CUSTOMER FORM -->
+
+        <form id="orderForm">
+
+            <label>
+                Your Name
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    required
+                >
+            </label>
+
+
+            <label>
+                WhatsApp Number
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                >
+            </label>
+
+            <label>
+                Notes
+                <textarea
+                    id="orderNotes"
+                    placeholder="Any special requests?"
+                ></textarea>
+            </label>
+
+            <button
+                type="submit"
+                class="checkout-button"
+                id="checkoutButton">
+
+                Place Pre-Order
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SUCCESS MESSAGE ================= -->
+
+<div class="success-popup" id="successPopup">
+
+    <div class="success-content">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Order Received!</h2>
+
+        <p>
+            Thank you! Your pre-order has been recorded.
+        </p>
+
+        <button onclick="closeSuccess()">
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OMOCHI! — Order Management</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family: "DM Sans", sans-serif;
+
+            background: #f5eee4;
+
+            color: #211b18;
+
+            padding: 40px 7%;
+
+        }
+
+
+        .header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .logo h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 34px;
+
+        }
+
+
+        .logo p {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .back-button {
+
+            text-decoration: none;
+
+            background: #774330;
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 25px;
+
+            font-size: 12px;
+
+        }
+
+
+        .dashboard {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .stat-card {
+
+            background: #f9f5ee;
+
+            padding: 25px;
+
+            border: 1px solid #e1d5c8;
+
+        }
+
+
+        .stat-card span {
+
+            font-size: 11px;
+
+            color: #766a62;
+
+        }
+
+
+        .stat-card strong {
+
+            display: block;
+
+            margin-top: 8px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 30px;
+
+            color: #774330;
+
+        }
+
+
+        .orders-container {
+
+            background: #f9f5ee;
+
+            padding: 30px;
+
+            border: 1px solid #e1d5c8;
+
+        }
+
+
+        .orders-container h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .order-card {
+
+            border: 1px solid #ded0c2;
+
+            padding: 22px;
+
+            margin-bottom: 18px;
+
+            background: #fffdf9;
+
+        }
+
+
+        .order-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .order-number {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 19px;
+
+        }
+
+
+        .order-date {
+
+            font-size: 10px;
+
+            color: #887970;
+
+            margin-top: 4px;
+
+        }
+
+
+        .status {
+
+            padding: 7px 14px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        .status.pending {
+
+            background: #f3dfae;
+
+            color: #795b20;
+
+        }
+
+
+        .status.completed {
+
+            background: #dcebd9;
+
+            color: #45633e;
+
+        }
+
+
+        .status.cancelled {
+
+            background: #efd7d3;
+
+            color: #81453d;
+
+        }
+
+
+        .customer {
+
+            margin-bottom: 15px;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .customer strong {
+
+            color: #774330;
+
+        }
+
+
+        .items {
+
+            border-top: 1px solid #e3d8cd;
+
+            border-bottom: 1px solid #e3d8cd;
+
+            padding: 12px 0;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 5px 0;
+
+            font-size: 12px;
+
+        }
+
+
+        .order-bottom {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .total {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            color: #774330;
+
+            font-size: 20px;
+
+        }
+
+
+        .actions {
+
+            display: flex;
+
+            gap: 8px;
+
+        }
+
+
+        .actions button {
+
+            border: none;
+
+            padding: 9px 13px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            cursor: pointer;
+
+        }
+
+
+        .complete {
+
+            background: #dcebd9;
+
+            color: #45633e;
+
+        }
+
+
+        .cancel {
+
+            background: #efd7d3;
+
+            color: #81453d;
+
+        }
+
+
+        .delete {
+
+            background: #e5ddd5;
+
+            color: #594a42;
+
+        }
+
+
+        .empty {
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            color: #887970;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .dashboard {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+            }
+
+            .order-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+            .order-bottom {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="logo">
+
+        <h1>OMOCHI!</h1>
+
+        <p>ORDER MANAGEMENT</p>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back-button"
+    >
+        ← Back to Website
+    </a>
+
+</header>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+    <div class="stat-card">
+
+        <span>Total Orders</span>
+
+        <strong id="totalOrders">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span>Pending Orders</span>
+
+        <strong id="pendingOrders">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span>Total Sales</span>
+
+        <strong id="totalSales">
+            Rp0
+        </strong>
+
+    </div>
+
+</div>
+
+
+<!-- ORDER LIST -->
+
+<div class="orders-container">
+
+    <h2>Customer Orders</h2>
+
+    <div id="orderList">
+
+        <div class="empty">
+
+            No orders yet.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let orders =
+    JSON.parse(
+        localStorage.getItem(
+            "omochiOrders"
+        )
+    ) || [];
+
+
+/* FORMAT RUPIAH */
+
+function formatRupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            maximumFractionDigits: 0
+        }
+    ).format(number);
+
+}
+
+
+/* DISPLAY ORDERS */
+
+function displayOrders() {
+
+    const list =
+        document.getElementById(
+            "orderList"
+        );
+
+
+    const totalOrders =
+        document.getElementById(
+            "totalOrders"
+        );
+
+
+    const pendingOrders =
+        document.getElementById(
+            "pendingOrders"
+        );
+
+
+    const totalSales =
+        document.getElementById(
+            "totalSales"
+        );
+
+
+    totalOrders.textContent =
+        orders.length;
+
+
+    pendingOrders.textContent =
+        orders.filter(
+            order =>
+                order.status === "Pending"
+        ).length;
+
+
+    const sales =
+        orders
+            .filter(
+                order =>
+                    order.status !==
+                    "Cancelled"
+            )
+            .reduce(
+                (sum, order) =>
+                    sum + order.total,
+                0
+            );
+
+
+    totalSales.textContent =
+        formatRupiah(sales);
+
+
+    if (orders.length === 0) {
+
+        list.innerHTML = `
+            <div class="empty">
+                No orders yet.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    orders.forEach(
+        order => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "order-card";
+
+
+            const statusClass =
+                order.status
+                    .toLowerCase();
+
+
+            let itemsHTML = "";
+
+
+            order.items.forEach(
+                item => {
+
+                    itemsHTML += `
+
+                        <div class="item">
+
+                            <span>
+                                ${item.name}
+                                × ${item.quantity}
+                            </span>
+
+                            <strong>
+                                ${formatRupiah(
+                                    item.subtotal
+                                )}
+                            </strong>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            card.innerHTML = `
+
+                <div class="order-header">
+
+                    <div>
+
+                        <div class="order-number">
+                            ${order.id}
+                        </div>
+
+                        <div class="order-date">
+                            ${order.date}
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        class="status ${statusClass}"
+                    >
+                        ${order.status}
+                    </span>
+
+                </div>
+
+
+                <div class="customer">
+
+                    <strong>
+                        Customer:
+                    </strong>
+
+                    ${order.customerName}
+
+                    <br>
+
+                    <strong>
+                        WhatsApp:
+                    </strong>
+
+                    ${order.customerPhone}
+
+                    ${
+                        order.notes
+                        ? `<br>
+                           <strong>
+                           Notes:
+                           </strong>
+                           ${order.notes}`
+                        : ""
+                    }
+
+                </div>
+
+
+                <div class="items">
+
+                    ${itemsHTML}
+
+                </div>
+
+
+                <div class="order-bottom">
+
+                    <div class="total">
+
+                        ${formatRupiah(
+                            order.total
+                        )}
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="complete"
+                            onclick="updateStatus(
+                                '${order.id}',
+                                'Completed'
+                            )"
+                        >
+                            Complete
+                        </button>
+
+
+                        <button
+                            class="cancel"
+                            onclick="updateStatus(
+                                '${order.id}',
+                                'Cancelled'
+                            )"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            class="delete"
+                            onclick="deleteOrder(
+                                '${order.id}'
+                            )"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* UPDATE STATUS */
+
+function updateStatus(
+    orderId,
+    newStatus
+) {
+
+    const order =
+        orders.find(
+            order =>
+                order.id === orderId
+        );
+
+
+    if (!order) return;
+
+
+    order.status =
+        newStatus;
+
+
+    localStorage.setItem(
+        "omochiOrders",
+        JSON.stringify(orders)
+    );
+
+
+    displayOrders();
+
+}
+
+
+/* DELETE ORDER */
+
+function deleteOrder(orderId) {
+
+    const confirmDelete =
+        confirm(
+            "Delete this order?"
+        );
+
+
+    if (!confirmDelete) return;
+
+
+    orders =
+        orders.filter(
+            order =>
+                order.id !== orderId
+        );
+
+
+    localStorage.setItem(
+        "omochiOrders",
+        JSON.stringify(orders)
+    );
+
+
+    displayOrders();
+
+}
+
+
+/* INITIALIZE */
+
+displayOrders();
+
+</script>
+
+
+</body>
+
+</html>
