@@ -6,13 +6,13 @@ const products = {
 
     croissant: {
         name: "Mochi Cookies and Cream",
-        price: 8000,
+        price: 10000,
         stock: 3
     },
 
     chocolate: {
         name: "Mochi Milo",
-        price: 8000,
+        price: 10000,
         stock: 3
     },
 
